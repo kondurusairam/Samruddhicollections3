@@ -1,0 +1,670 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap");
+
+:root {
+  --g: #123d31;
+  --g2: #0c2c24;
+  --gold: #c99b3a;
+  --cream: #faf7ef;
+  --text: #24342e;
+  --muted: #68736e;
+  --line: #e6dcc6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--text);
+  font-family: "Jost", Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+.wrap {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 247, 239, 0.97);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+
+.navin {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.brand b {
+  font: 700 29px "Cormorant Garamond", serif;
+  line-height: 1;
+  color: var(--g2);
+}
+
+.brand small {
+  margin-top: 6px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gold);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  margin-left: auto;
+}
+
+.links a {
+  font-size: 14px;
+  color: #56615c;
+  transition: color 0.2s ease;
+}
+
+.links a:hover {
+  color: var(--g);
+}
+
+.navact {
+  display: flex;
+  gap: 9px;
+}
+
+.menu {
+  display: none;
+  border: 0;
+  background: transparent;
+  font-size: 25px;
+  color: var(--g);
+  cursor: pointer;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 11px 21px;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid var(--gold);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.94;
+}
+
+.sm {
+  min-height: 40px;
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+.gold {
+  background: linear-gradient(100deg, #b98727, #e0bd68);
+  border: 0;
+  color: #102d25;
+}
+
+.wa {
+  background: #159447;
+  border-color: #159447;
+  color: #fff;
+}
+
+.outline {
+  color: #fff;
+  background: transparent;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+  min-height: 620px;
+  overflow: hidden;
+  color: #fff;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0, 35, 28, 0.92) 0%,
+      rgba(0, 35, 28, 0.78) 36%,
+      rgba(0, 35, 28, 0.42) 63%,
+      rgba(0, 35, 28, 0.08) 100%
+    ),
+    url("/src/assets/hero-jewellery.png");
+
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.herogrid {
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+}
+
+.heroContent {
+  width: 62%;
+  max-width: 700px;
+  padding: 55px 0;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+.hero .eyebrow {
+  color: #e5c979;
+}
+
+.hero h1 {
+  margin: 18px 0 10px;
+  font: 700 clamp(52px, 6vw, 72px) / 0.9 "Cormorant Garamond", serif;
+  letter-spacing: -1px;
+  color: #fff;
+}
+
+.hero h2 {
+  margin: 22px 0 0;
+  font: 500 clamp(24px, 2.5vw, 31px) / 1.2 "Cormorant Garamond", serif;
+  color: #e5c979;
+}
+
+.goldDivider {
+  width: 430px;
+  max-width: 100%;
+  height: 22px;
+  margin: 18px 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.goldDivider::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold) 15%,
+    var(--gold) 85%,
+    transparent
+  );
+}
+
+.goldDivider span {
+  position: relative;
+  z-index: 1;
+  padding: 0 12px;
+  background: #103c30;
+  color: var(--gold);
+  font-size: 12px;
+}
+
+.heroText {
+  max-width: 690px;
+  margin: 0 0 25px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #edf3ef;
+}
+
+.actions {
+  display: flex;
+  gap: 11px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+.section {
+  padding: 78px 0;
+}
+
+.offer {
+  background: #fbf3dc;
+}
+
+.center {
+  text-align: center;
+}
+
+.title {
+  margin: 12px 0 40px;
+  font: 700 45px / 1 "Cormorant Garamond", serif;
+  text-align: center;
+  color: var(--g2);
+}
+
+.title.left {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   OFFER
+========================= */
+
+.offerbox {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  background: #fff;
+  border: 1px solid #e0c16e;
+  border-radius: 12px;
+  padding: 28px 30px;
+}
+
+.spark {
+  flex-shrink: 0;
+  font-size: 34px;
+  color: var(--gold);
+}
+
+.offerContent {
+  flex: 1;
+}
+
+.offerbox h3 {
+  margin: 0;
+  font: 700 30px "Cormorant Garamond", serif;
+  color: var(--g2);
+}
+
+.offerbox p {
+  margin: 8px 0;
+  font-size: 17px;
+}
+
+.offerbox small {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* =========================
+   COLLECTION CARDS
+========================= */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(18, 61, 49, 0.08);
+}
+
+.cardart {
+  height: 165px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(18, 61, 49, 0.96),
+      rgba(12, 44, 36, 0.88)
+    );
+  color: var(--gold);
+  font-size: 65px;
+}
+
+.card h3 {
+  margin: 17px 0 6px;
+  font: 700 25px "Cormorant Garamond", serif;
+  color: var(--g2);
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.tint {
+  background: #f1eadb;
+}
+
+.twocol,
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.twocol p,
+.twocol li {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.twocol ul {
+  padding-left: 20px;
+}
+
+.aboutart {
+  min-height: 330px;
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(18, 61, 49, 0.97),
+      rgba(12, 44, 36, 0.94)
+    );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  font: 600 46px "Cormorant Garamond", serif;
+  letter-spacing: 5px;
+}
+
+.aboutart small {
+  margin-top: 10px;
+  font-family: "Jost", sans-serif;
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: var(--gold);
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contactbox,
+.ctabox {
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.contactbox {
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.contactbox p {
+  margin: 0 0 20px;
+  line-height: 1.7;
+}
+
+.contactbox p:last-child {
+  margin-bottom: 0;
+}
+
+.contactbox a {
+  color: var(--g);
+  font-weight: 600;
+}
+
+.ctabox {
+  background: var(--g);
+  color: #fff;
+}
+
+.ctabox h3 {
+  margin-top: 0;
+  font: 600 32px "Cormorant Garamond", serif;
+}
+
+.ctabox p {
+  color: #dbe6df;
+  line-height: 1.7;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  background: var(--g);
+  color: #fff;
+  padding-top: 45px;
+}
+
+.foot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 35px;
+}
+
+.foot b {
+  font: 700 28px "Cormorant Garamond", serif;
+}
+
+.foot p {
+  color: #cddbd4;
+  font-size: 13px;
+}
+
+.copy {
+  text-align: center;
+  border-top: 1px solid #ffffff20;
+  padding: 18px;
+  font-size: 11px;
+  color: #b9c9c1;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .links {
+    display: none;
+  }
+
+  .links.open {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 78px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 17px;
+    padding: 20px 24px;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .navact {
+    display: none;
+  }
+
+  .heroContent {
+    width: 75%;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .twocol,
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .wrap {
+    width: min(100% - 36px, 1200px);
+  }
+
+  .navin {
+    min-height: 70px;
+  }
+
+  .brand b {
+    font-size: 23px;
+  }
+
+  .brand small {
+    font-size: 7px;
+    letter-spacing: 1.5px;
+  }
+
+  .links.open {
+    top: 70px;
+  }
+
+  .hero {
+    min-height: 600px;
+    background-position: 65% center;
+  }
+
+  .herogrid {
+    min-height: 600px;
+  }
+
+  .heroContent {
+    width: 100%;
+    padding: 50px 0;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+  }
+
+  .hero h2 {
+    font-size: 25px;
+  }
+
+  .heroText {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .goldDivider {
+    width: 310px;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .actions .btn {
+    flex: 0 0 auto;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .title {
+    font-size: 38px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .offerbox {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .offerbox .btn {
+    width: 100%;
+  }
+
+  .offerbox h3 {
+    font-size: 27px;
+  }
+
+  .aboutart {
+    min-height: 260px;
+    font-size: 38px;
+  }
+
+  .foot {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
