@@ -15,28 +15,20 @@ const cats = [
       "Traditional and everyday designs for festivals, gifting and daily wear.",
     image: bridalSet,
   },
-  {
-    title: "Bangles & Kadas",
-    description: "Stackable bangles, kadas and festive combinations.",
-  },
+  { title: "Bangles & Kadas", description: "Stackable bangles, kadas and festive combinations." },
   {
     title: "Necklaces & Chokers",
-    description:
-      "Chokers, long necklace styles and elegant stone-work designs.",
+    description: "Chokers, long necklace styles and elegant stone-work designs.",
   },
-  {
-    title: "Earrings & Jhumkas",
-    description: "Jhumkas, studs, drops and hoops for every occasion.",
-  },
-  {
-    title: "Rings",
-    description: "Delicate stone rings and statement designs.",
-  },
+  { title: "Earrings & Jhumkas", description: "Jhumkas, studs, drops and hoops for every occasion." },
+  { title: "Rings", description: "Delicate stone rings and statement designs." },
   {
     title: "Ladies Accessories",
     description: "Clutches, hair accessories, bindis and finishing touches.",
   },
 ];
+
+const symbols = ["✧", "◈", "❖", "✦", "◇", "✿"];
 
 export default function App() {
   const [m, setM] = useState(false);
@@ -51,39 +43,20 @@ export default function App() {
           </a>
 
           <nav className={m ? "links open" : "links"}>
-            {["Home", "Collections", "Offers", "About", "Contact"].map(
-              (item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  onClick={() => setM(false)}
-                >
-                  {item}
-                </a>
-              )
-            )}
+            {["Home", "Collections", "Offers", "About", "Contact"].map((item) => (
+              <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setM(false)}>
+                {item}
+              </a>
+            ))}
           </nav>
 
-          <button
-            className="menu"
-            onClick={() => setM(!m)}
-            aria-label="Toggle navigation"
-          >
+          <button className="menu" onClick={() => setM(!m)} aria-label="Toggle navigation">
             ☰
           </button>
 
           <div className="navact">
-            <a className="btn sm" href={`tel:+91${phone}`}>
-              Call
-            </a>
-            <a
-              className="btn wa sm"
-              href={wa}
-              target="_blank"
-              rel="noreferrer"
-            >
-              WhatsApp
-            </a>
+            <a className="btn sm" href={`tel:+91${phone}`}>Call</a>
+            <a className="btn wa sm" href={wa} target="_blank" rel="noreferrer">WhatsApp</a>
           </div>
         </div>
       </header>
@@ -104,24 +77,14 @@ export default function App() {
           <div className="wrap">
             <p className="eyebrow center">Current Offers</p>
             <h2 className="title">Shravanamasam Special Offer</h2>
-
             <div className="offerbox">
               <div className="spark">✦</div>
               <div>
                 <h3>శ్రావణమాసం ప్రత్యేక ఆఫర్</h3>
-                <p>
-                  Every ₹1,000 purchase gets a <strong>HAND BAG FREE</strong>.
-                </p>
+                <p>Every ₹1,000 purchase gets a <strong>HAND BAG FREE</strong>.</p>
                 <small>Offer valid while stocks last.</small>
               </div>
-              <a
-                className="btn wa"
-                href={wa}
-                target="_blank"
-                rel="noreferrer"
-              >
-                WhatsApp Us
-              </a>
+              <a className="btn wa" href={wa} target="_blank" rel="noreferrer">WhatsApp Us</a>
             </div>
           </div>
         </section>
@@ -135,16 +98,18 @@ export default function App() {
               {cats.map((category, index) => (
                 <article className="card" key={category.title}>
                   {category.image ? (
-                    <div className="cardart cardart-image">
+                    <div
+                      className="cardart cardart-image"
+                      style={{ overflow: "hidden", padding: 0, position: "relative" }}
+                    >
                       <img
                         src={category.image}
                         alt="Samruddhi Collections imitation jewellery bridal set"
+                        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                       />
                     </div>
                   ) : (
-                    <div className="cardart">
-                      {["✧", "◈", "❖", "✦", "◇", "✿"][index]}
-                    </div>
+                    <div className="cardart">{symbols[index]}</div>
                   )}
 
                   <h3>{category.title}</h3>
@@ -162,49 +127,19 @@ export default function App() {
           <div className="wrap">
             <p className="eyebrow center">Contact</p>
             <h2 className="title">Talk to us before you visit</h2>
-
             <div className="contact">
               <div className="contactbox">
-                <p>
-                  <b>Phone</b>
-                  <br />
-                  <a href={`tel:+91${phone}`}>{phone}</a>
-                </p>
-                <p>
-                  <b>WhatsApp</b>
-                  <br />
-                  <a href={wa}>{phone}</a>
-                </p>
-                <p>
-                  <b>Email</b>
-                  <br />
-                  <a href={`mailto:${email}`}>{email}</a>
-                </p>
-                <p>
-                  <b>Location</b>
-                  <br />
-                  Turkayamjal / Ragannaguda, Hyderabad
-                </p>
+                <p><b>Phone</b><br /><a href={`tel:+91${phone}`}>{phone}</a></p>
+                <p><b>WhatsApp</b><br /><a href={wa}>{phone}</a></p>
+                <p><b>Email</b><br /><a href={`mailto:${email}`}>{email}</a></p>
+                <p><b>Location</b><br />Turkayamjal / Ragannaguda, Hyderabad</p>
               </div>
-
               <div className="ctabox">
                 <h3>Quickest way to reach us</h3>
-                <p>
-                  Call or send us a WhatsApp message for the latest collections
-                  and offer details.
-                </p>
+                <p>Call or send us a WhatsApp message for the latest collections and offer details.</p>
                 <div className="actions">
-                  <a className="btn gold" href={`tel:+91${phone}`}>
-                    Call
-                  </a>
-                  <a
-                    className="btn wa"
-                    href={wa}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Chat on WhatsApp
-                  </a>
+                  <a className="btn gold" href={`tel:+91${phone}`}>Call</a>
+                  <a className="btn wa" href={wa} target="_blank" rel="noreferrer">Chat on WhatsApp</a>
                 </div>
               </div>
             </div>
@@ -224,9 +159,7 @@ export default function App() {
             <p>Email: {email}</p>
           </div>
         </div>
-        <div className="copy">
-          © {new Date().getFullYear()} Samruddhi Collections. All rights reserved.
-        </div>
+        <div className="copy">© {new Date().getFullYear()} Samruddhi Collections. All rights reserved.</div>
       </footer>
     </>
   );
