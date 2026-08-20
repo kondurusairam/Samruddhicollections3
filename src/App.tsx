@@ -32,6 +32,14 @@ const symbols = ["✧", "◈", "❖", "✦", "◇", "✿"];
 
 export default function App() {
   const [m, setM] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const openCategory = (title: string) => {
+    setSelectedCategory(title);
+    window.setTimeout(() => {
+      document.getElementById("category-detail")?.scrollIntoView({ behavior: "smooth" });
+    }, 50);
+  };
 
   return (
     <>
@@ -96,7 +104,12 @@ export default function App() {
 
             <div className="cards">
               {cats.map((category, index) => (
-                <article className="card" key={category.title}>
+                <article
+                  className="card"
+                  key={category.title}
+                  onClick={() => openCategory(category.title)}
+                  style={{ cursor: "pointer" }}
+                >
                   {category.image ? (
                     <div
                       className="cardart cardart-image"
@@ -114,14 +127,57 @@ export default function App() {
 
                   <h3>{category.title}</h3>
                   <p>{category.description}</p>
-                  <a className="cardlink" href={wa} target="_blank" rel="noreferrer">
-                    Enquire Now <span>→</span>
-                  </a>
+                  <button
+                    className="cardlink"
+                    type="button"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      openCategory(category.title);
+                    }}
+                  >
+                    Explore Collection <span>→</span>
+                  </button>
                 </article>
               ))}
             </div>
           </div>
         </section>
+
+        {selectedCategory === "Imitation Jewellery" && (
+          <section id="category-detail" className="section category-detail">
+            <div className="wrap">
+              <p className="eyebrow center">Imitation Jewellery</p>
+              <h2 className="title">Bridal Jewellery Collection</h2>
+              <div className="category-detail-grid">
+                <div className="category-detail-image">
+                  <img
+                    src={bridalSet}
+                    alt="Samruddhi Collections bridal imitation jewellery set"
+                  />
+                </div>
+                <div className="category-detail-copy">
+                  <span className="detail-label">Featured Collection</span>
+                  <h3>Bridal Jewellery Set</h3>
+                  <p>
+                    Discover traditional imitation jewellery designed for weddings,
+                    festivals and special occasions. Ask us about available designs,
+                    colours and matching pieces.
+                  </p>
+                  <div className="detail-points">
+                    <span>✦ Bridal sets</span>
+                    <span>✦ Traditional designs</span>
+                    <span>✦ Festival collections</span>
+                    <span>✦ Matching jewellery available</span>
+                  </div>
+                  <div className="actions">
+                    <a className="btn wa" href={wa} target="_blank" rel="noreferrer">Enquire on WhatsApp</a>
+                    <button className="btn" type="button" onClick={() => setSelectedCategory(null)}>Back to Collections</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         <section id="contact" className="section">
           <div className="wrap">
